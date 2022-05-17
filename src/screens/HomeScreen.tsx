@@ -40,10 +40,8 @@ const HomeScreen = ({navigation}: {navigation: any}): React.ReactElement => {
   }, [dispatch]);
 
   const onViewUser = (id: number) => {
-    //   navigation.navi
     dispatch(fetchIndividualUser(id));
-    // console.log(id);
-    navigation.navigate('ViewUser');
+    navigation.navigate('ViewUser', {data: users});
   };
 
   const renderUser = () => {
@@ -66,7 +64,7 @@ const HomeScreen = ({navigation}: {navigation: any}): React.ReactElement => {
         // console.log('return');
         return (
           <FlatList
-            key={'list-user'}
+            // key={'list-user'}
             data={users.data}
             renderItem={({item, index}: {item: {}; index: number}) => (
               <>

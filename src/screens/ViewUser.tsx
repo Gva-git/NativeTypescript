@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import SingleUserForm from '../Forms/SingleUserForm';
 
 const ViewUser = () => {
   return (
-    <View>
+    <View style={{marginHorizontal: 20}}>
       <SingleUserForm />
     </View>
   );
 };
 
 export default ViewUser;
+
+const styles = StyleSheet.create({});

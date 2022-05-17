@@ -8,30 +8,18 @@ interface UserModel {
 }
 
 interface UserList {
-  data: [];
+  data: UserModel[];
 }
 
-interface SingleUser {
-  data: {};
-}
-
-// type UserState = {
-//   users: UserList;
-//   isLoading: boolean;
-//   hasError: boolean;
-// };
-
-const initialState = {
-  users: {
-    data: [] as UserModel[],
-  },
-  isLoading: false,
-  hasError: false,
+type UserState = {
+  users: UserList;
+  isLoading: boolean;
+  hasError: boolean;
 };
 
-const singleInitialState = {
+const initialState: Readonly<UserState> = {
   users: {
-    data: {} as SingleUser,
+    data: [],
   },
   isLoading: false,
   hasError: false,
@@ -41,38 +29,56 @@ const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
-    getUsers: state => {
+    getUsers: (state: {isLoading: boolean}) => {
       state.isLoading = true;
     },
-    getUserSuccess: (state, {payload}) => {
+    getUserSuccess: (
+      state: {users: {data: any}; isLoading: boolean; hasError: boolean},
+      {payload}: any,
+    ) => {
       state.users = {
         data: [...state.users.data, ...payload.data],
       };
       state.isLoading = false;
       state.hasError = false;
     },
-    getUserFailure: state => {
+    getUserFailure: (state: {isLoading: boolean; hasError: boolean}) => {
       state.isLoading = false;
       state.hasError = true;
     },
   },
 });
 
+interface SingleUser {
+  data: UserModel;
+}
+
+const singleInitialState = {
+  user: {
+    data: {} as SingleUser,
+  },
+  isLoading: false,
+  hasError: false,
+};
+
 const individualUserSlice = createSlice({
   name: 'userIndividual',
   initialState: singleInitialState,
   reducers: {
-    getIndividualUser: state => {
+    getIndividualUser: (state: {isLoading: boolean}) => {
       state.isLoading = true;
     },
-    getIndividualUserSuccess: (state, {payload}) => {
-      state.users = {
+    getIndividualUserSuccess: (
+      state: {user: {data: any}; isLoading: boolean; hasError: boolean},
+      {payload}: any,
+    ) => {
+      state.user = {
         data: payload.data,
       };
       state.isLoading = false;
       state.hasError = false;
     },
-    getIndividualFailure: state => {
+    getIndividualFailure: (state: {isLoading: boolean; hasError: boolean}) => {
       state.isLoading = false;
       state.hasError = true;
     },

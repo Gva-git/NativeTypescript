@@ -1,11 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  ScrollView,
-  Text,
-  View,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {Field, reduxForm} from 'redux-form';
 import FormInput from '../components/FormInput';
 
