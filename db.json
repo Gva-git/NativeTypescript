@@ -1,0 +1,22 @@
+{
+    "contacts" : [
+        {
+            "name": "Jeevasurya",
+            "email": "jeeva@gmail.com",
+            "contact": "898975467",
+            "id": 1
+        },
+        {
+            "name": "Sudarshanan",
+            "email": "sudar@gmail.com",
+            "contact": "668983536",
+            "id": 2
+        },
+        {
+            "name": "Vicky",
+            "email": "vicky@gmail.com",
+            "contact": "27735369",
+            "id": 3
+        }
+    ]
+}
