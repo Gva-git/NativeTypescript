@@ -40,14 +40,14 @@ const loginAuthSlice = createSlice({
       try {
         const user = userData.find(user => user.email === action.payload.email);
         if (!user) {
-          state.user = {};
+          // state.user = {};
           state.error = 'User not found';
         } else {
           if (user.password === action.payload.password) {
             state.user = user;
             state.error = undefined;
           } else {
-            state.user = {};
+            // state.user = {};
             state.error = 'Password incorrect';
           }
         }

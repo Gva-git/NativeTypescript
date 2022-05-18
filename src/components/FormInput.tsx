@@ -13,6 +13,7 @@ const FormInput = (props: any) => {
         style={styles.textInputForm}
         placeholder={props.label}
         defaultValue="test"
+        secureTextEntry={props.secureTextEntry}
       />
     </View>
   );

@@ -8,7 +8,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {onLogin} from '../redux/slices/loginAuthSlice';
 import {authUser} from '../redux/store';
 
-const LoginForm = (props: any, {navigation}: {navigation: any}) => {
+const LoginForm = (props: any) => {
   const [errMsg, setErrMsg] = useState('');
 
   const dispatch = useDispatch();
@@ -33,8 +33,18 @@ const LoginForm = (props: any, {navigation}: {navigation: any}) => {
 
   return (
     <View>
-      <Field name="email" label="Email" component={FormInput} />
-      <Field name="password" label="Password" component={FormInput} />
+      <Field
+        name="email"
+        label="Email"
+        component={FormInput}
+        secureTextEntry={false}
+      />
+      <Field
+        name="password"
+        label="Password"
+        component={FormInput}
+        secureTextEntry={true}
+      />
       <View>
         <TouchableOpacity
           style={styles.button}
