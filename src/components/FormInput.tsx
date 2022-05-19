@@ -14,6 +14,7 @@ const FormInput = (props: any) => {
         placeholder={props.label}
         defaultValue="test"
         secureTextEntry={props.secureTextEntry}
+        testID={props.testID}
       />
     </View>
   );
